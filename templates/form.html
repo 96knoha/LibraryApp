@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>図書アプリ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>気まぐれ書店</h1>
+    <!-- post:データを送る、get:データを取得 -->
+    <form method="post" action="{{ url_for('register') }}">
+        <table>
+            <tr>
+                <th>入荷日</th>
+                <th>タイトル</th>
+                <th>価格</th>
+            </tr>
+            <tr>
+                <td><input type="text" name="arrival_day"></td>
+                <td><input type="text" name="title"></td>
+                <td><input type="text" name="price"></td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" value="登録">
+    </form>
+</body>
+</html>
