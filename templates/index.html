@@ -2,27 +2,27 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>図書アプリ</title>
+    <title>購入本管理アプリ</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>気まぐれ書店</h1>
-    <h2>今月の新刊一覧</h2>
+    <h1>購入本管理アプリ</h1>
+    <h2>購入本一覧</h2>
     <br>
         {% if books == []%}
-            <p>今月の新刊情報はまだありません</p>
+            <p>購入した本の情報はまだありません</p>
         {% else %}
             <table border="1">
                 <tr>
-                    <th>入荷日</th>
                     <th>タイトル</th>
-                    <th>価格</th>
+                    <th>購入日</th>
+                    <th>目標日</th>
                 </tr>
                 {%for book in books%}
                     <tr>
-                        <td>{{book.arrival_day}}</td>
                         <td>{{book.title}}</td>
-                        <td>{{book.price}}</td>
+                        <td>{{book.date_of_purchase}}</td>
+                        <td>{{book.aim_day}}</td>
                     </tr>
                 {% endfor %}
             </table>
