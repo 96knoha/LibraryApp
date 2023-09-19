@@ -19,7 +19,7 @@ def index():
 
     books = []
     for row in db_books:
-        books.append({'title':row[0], 'price':row[1], 'arrival_day':row[2]})
+        books.append({'title':row[0], 'date_of_purchase':row[1], 'aim_day':row[2]})
 
     return render_template(
         'index.html',
@@ -33,12 +33,12 @@ def form():
 @app.route('/register' , methods=['POST'])
 def register():
     title = request.form['title']
-    price = request.form['price']
-    arrival_day = request.form['arrival_day']
+    date_of_purchase = request.form['date_of_purchase']
+    aim_day = request.form['aim_day']
 
     con = sqlite3.connect(DATABASE)
     con.execute('INSERT INTO books VALUES (?, ?, ?)', 
-                (title, price, arrival_day))
+                (title, date_of_purchase, aim_day))
     con.commit()
     con.close()
 
